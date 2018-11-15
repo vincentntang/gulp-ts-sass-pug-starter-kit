@@ -1,6 +1,14 @@
 GulpJS-Pug-Sass-Typescript Starter Kit is a simple, customizable frontend kit.
 
-# File structure
+It includes jquery 3.3.1 and bootstrap 4.1.3 using the bootstrap thumbnail gallery template
+
+https://startbootstrap.com/template-overviews/thumbnail-gallery/
+
+# Todo
+
+- [ ] Working pipeline
+- [ ] Revise pug for simpler example
+- [ ] Add live endpoint example
 
 # Installation
 
