@@ -22,6 +22,14 @@ npm install gulp-cli -g
 npm install
 ```
 
+Run
+
+```
+gulp
+```
+
+Change a `src/scss` file and you should see a new file created in `dist`
+
 ## Features
 
 ## Directory Structure

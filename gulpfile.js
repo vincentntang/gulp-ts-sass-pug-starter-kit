@@ -24,7 +24,20 @@ gulp.task("workflow", function() {
     .pipe(gulp.dest("./dist/css"));
 });
 
+gulp.task("workflow", function buildHTML() {
+  gulp.src("./src/pug/**/*.pug").pipe(
+    pug({
+      doctype: "html",
+      pretty: false
+    }).pipe(gulp.dest("./dist/"))
+  );
+});
+
 //Watch task
 gulp.task("default", function() {
   gulp.watch("./src/scss/**/*.scss", ["workflow"]);
+});
+
+gulp.task("default", function() {
+  gulp.watch("./src/pug/**/*.pug", ["workflow"]);
 });
