@@ -51,10 +51,24 @@ src/
     │   └── _variables.scss
     └── components/
         └── _layout.scss
-        main.scss
+└── pug/
+    ├── partials/
+    │   ├── _footer.pug
+    │   ├── _header.pug
+    │   ├── _layout.pug
+    └── components/
+        └── _index.pug
+        └── _heroic.pug
+        └── _portfolio.pug
+        └── _shop.pug
+└── ts/
+    ├── ts
+       └── _script.ts
 .gitignore
 LICENSE.md
 README.md
 package-lock.json
 package.json
 ```
+
+## Customization
