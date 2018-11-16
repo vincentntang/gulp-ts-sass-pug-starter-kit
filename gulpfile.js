@@ -1,12 +1,16 @@
 "use strict";
 
+/* IMPORTS */
+
 var gulp = require("gulp");
 var pug = require("gulp-pug");
 var sass = require("gulp-sass");
 var cssnano = require("gulp-cssnano");
 var sourcemaps = require("gulp-sourcemaps");
 var autoprefixer = require("gulp-autoprefixer");
-var watch = require("gulp-watch");
+var browserSync = require("browser-sync").create();
+
+/* SCSS COMPILATION WATCH AND SAVE */
 
 gulp.task("workflow", function() {
   gulp
@@ -23,29 +27,14 @@ gulp.task("workflow", function() {
     .pipe(sourcemaps.write("./"))
 
     .pipe(gulp.dest("./dist/css"));
+  // .pipe(browserSync.stream());
 });
 
-//Watch task
 gulp.task("default", function() {
   gulp.watch("./src/scss/**/*.scss", ["workflow"]);
 });
 
-// gulp.task("pug", function buildHTML() {
-//   gulp
-//     .src(["src/pug/**/*.pug"], {
-//       base: "src/pug"
-//     })
-//     .pipe(pug())
-//     .pipe(gulp.dest("./dist/"));
-// });
-
-// gulp.task("templates", function() {
-//   gulp
-//     .src("./*.pug")
-//     .pipe(plumber({ errorHandler: onError }))
-//     .pipe(pug())
-//     .pipe(gulp.dest("build/"));
-// });
+/* PUG COMPILATION WATCH AND SAVE*/
 
 gulp.task("views", function() {
   return gulp
@@ -57,34 +46,26 @@ gulp.task("views", function() {
       })
     )
     .pipe(gulp.dest("./dist/"));
+  // .pipe(browserSync.stream());
 });
-// gulp.task("workflow", function buildHTML() {
-//   return gulp.src("./src/pug/**/*.pug").pipe(
-//     pug({
-//       doctype: "html",
-//       pretty: false
-//     }).pipe(gulp.dest("./dist/"))
-//   );
-// });
-
-// gulp.task("pug", function() {
-//   return gulp
-//     .src("./src/pug/**/*.pug")
-//     .pipe(
-//       pug({
-//         doctype: "html",
-//         pretty: false
-//       })
-//     )
-//     .pipe(gulp.dest("./dist/"));
-// });
 
 gulp.task("default", function() {
   gulp.watch("./src/pug/**/*.pug", ["views"]);
 });
 
-// gulp.task("watch", function() {
-//   return watch("./src/pug/**/*.pug", { ignoreInitial: false }).pipe(
-//     gulp.dest("pug")
-//   );
+/* BROWSER SYNC */
+
+// gulp.task("serve", function() {
+//   browserSync.init({
+//     server: {
+//       baseDir: "./dist"
+//     }
+//   });
+//   gulp.watch("./src/pug/**/*.pug").on("change", browserSync.reload);
+//   gulp.watch("./src/scss/**/*.scss").on("change", browserSync.reload);
+//   gulp.watch("./src/ts/*.ts").on("change", browserSync.reload);
 // });
+
+// /* SERVE */
+
+// gulp.task("default", ["serve"]);
