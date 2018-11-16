@@ -9,9 +9,10 @@ var cssnano = require("gulp-cssnano");
 var sourcemaps = require("gulp-sourcemaps");
 var autoprefixer = require("gulp-autoprefixer");
 var ts = require("gulp-typescript");
+var tsProject = ts.createProject("tsconfig.json");
 var browserSync = require("browser-sync").create();
 
-/* SCSS COMPILATION WATCH AND SAVE */
+/* SCSS to CSS */
 
 gulp.task("sass-pipe", function() {
   gulp
@@ -31,7 +32,7 @@ gulp.task("sass-pipe", function() {
     .pipe(browserSync.stream());
 });
 
-/* PUG COMPILATION WATCH AND SAVE*/
+/* PUG to HTML */
 
 gulp.task("pug-pipe", function() {
   return gulp
@@ -45,7 +46,7 @@ gulp.task("pug-pipe", function() {
     .pipe(gulp.dest("./dist/"));
 });
 
-/* TYPESCRIPT COMPILATION */
+/* TYPESCRIPT to JS */
 
 gulp.task("ts-pipe", function() {
   return gulp

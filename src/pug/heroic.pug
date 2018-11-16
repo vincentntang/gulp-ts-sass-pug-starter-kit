@@ -12,40 +12,14 @@ block content
       a.btn.btn-primary.btn-lg(href='#') Call to action!
     // Page Features
     .row.text-center
-      .col-lg-3.col-md-6.mb-4
-        .card
-          img.card-img-top(src='http://placehold.it/500x325', alt='')
-          .card-body
-            h4.card-title Card title
-            p.card-text
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.
-          .card-footer
-            a.btn.btn-primary(href='#') Find Out More!
-      .col-lg-3.col-md-6.mb-4
-        .card
-          img.card-img-top(src='http://placehold.it/500x325', alt='')
-          .card-body
-            h4.card-title Card title
-            p.card-text
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.
-          .card-footer
-            a.btn.btn-primary(href='#') Find Out More!
-      .col-lg-3.col-md-6.mb-4
-        .card
-          img.card-img-top(src='http://placehold.it/500x325', alt='')
-          .card-body
-            h4.card-title Card title
-            p.card-text
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.
-          .card-footer
-            a.btn.btn-primary(href='#') Find Out More!
-      .col-lg-3.col-md-6.mb-4
-        .card
-          img.card-img-top(src='http://placehold.it/500x325', alt='')
-          .card-body
-            h4.card-title Card title
-            p.card-text
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.
-          .card-footer
-            a.btn.btn-primary(href='#') Find Out More!
+      - for (var x = 0; x < 4; x++)
+        .col-lg-3.col-md-6.mb-4
+          .card
+            img.card-img-top(src='http://placehold.it/500x325', alt='')
+            .card-body
+              h4.card-title Card title
+              p.card-text
+                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.
+            .card-footer
+              a.btn.btn-primary(href='#') Find Out More!
     // /.row
