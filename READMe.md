@@ -34,6 +34,15 @@ This project contains a `src` and a `dest` folder, and a few starter files locat
 - **.gitignore** - ignore `node_modules` folder
 - **package.json** - npm package folder to initialize `node_modules`
 
+Limitations
+
+- Only one typescript file allowed (does not have full typescript support)
+
+Customization
+
+- Modify `src/pug/partials/_layout` and add your CDN's for things like bootstrap, jquery, etc
+- Add your styles under `src/scss/components`
+
 ```
 dist/
 ├── css/
