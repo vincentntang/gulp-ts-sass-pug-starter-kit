@@ -9,7 +9,7 @@ var cssnano = require("gulp-cssnano");
 var sourcemaps = require("gulp-sourcemaps");
 var autoprefixer = require("gulp-autoprefixer");
 var ts = require("gulp-typescript");
-var tsProject = ts.createProject("tsconfig.json");
+// var tsProject = ts.createProject("tsconfig.json");
 var browserSync = require("browser-sync").create();
 
 /* SCSS to CSS */

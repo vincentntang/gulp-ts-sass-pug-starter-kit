@@ -1,1 +1,1 @@
-console.log("Typescript asdfasdfasdf");
+console.log("Hello World!");
