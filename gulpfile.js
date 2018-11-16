@@ -8,11 +8,12 @@ var sass = require("gulp-sass");
 var cssnano = require("gulp-cssnano");
 var sourcemaps = require("gulp-sourcemaps");
 var autoprefixer = require("gulp-autoprefixer");
+var ts = require("gulp-typescript");
 var browserSync = require("browser-sync").create();
 
 /* SCSS COMPILATION WATCH AND SAVE */
 
-gulp.task("workflow", function() {
+gulp.task("sass-pipe", function() {
   gulp
     .src("./src/scss/**/*.scss")
     .pipe(sourcemaps.init())
@@ -30,13 +31,9 @@ gulp.task("workflow", function() {
     .pipe(browserSync.stream());
 });
 
-// gulp.task("default", function() {
-//   gulp.watch("./src/scss/**/*.scss", ["workflow"]);
-// });
-
 /* PUG COMPILATION WATCH AND SAVE*/
 
-gulp.task("views", function() {
+gulp.task("pug-pipe", function() {
   return gulp
     .src("./src/pug/**/*.pug")
     .pipe(
@@ -46,7 +43,20 @@ gulp.task("views", function() {
       })
     )
     .pipe(gulp.dest("./dist/"));
-  // .pipe(browserSync.stream());
+});
+
+/* TYPESCRIPT COMPILATION */
+
+gulp.task("ts-pipe", function() {
+  return gulp
+    .src("src/ts/**/*.ts")
+    .pipe(
+      ts({
+        noImplicitAny: true,
+        outFile: "bundle.js"
+      })
+    )
+    .pipe(gulp.dest("./dist/js"));
 });
 
 /* BROWSER SYNC */
@@ -57,11 +67,13 @@ gulp.task("serve", function() {
       baseDir: "./dist"
     }
   });
-  // gulp.watch("./src/ts/*.ts").on("change", browserSync.reload);
-  gulp.watch("./src/scss/**/*.scss", ["workflow"]);
-  gulp.watch("./src/pug/**/*.pug", ["views"]).on("change", browserSync.reload);
+  gulp.watch("./src/scss/**/*.scss", ["sass-pipe"]);
+  gulp.watch("./src/ts/*.ts", ["ts-pipe"]).on("change", browserSync.reload);
+  gulp
+    .watch("./src/pug/**/*.pug", ["pug-pipe"])
+    .on("change", browserSync.reload);
 });
 
-// /* SERVE */
+/* SERVE */
 
 gulp.task("default", ["serve"]);

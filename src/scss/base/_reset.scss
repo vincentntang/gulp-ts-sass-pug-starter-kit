@@ -1,13 +1,12 @@
-/* Reset
-  =============== */
+/* Add Resets if you are not using bootstrap */
 
 // Reset box sizing to border box
-html {
-  box-sizing: border-box;
-}
+// html {
+//   box-sizing: border-box;
+// }
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
+// *,
+// *::before,
+// *::after {
+//   box-sizing: inherit;
+// }
